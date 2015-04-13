@@ -1,18 +1,21 @@
 /*
- *  
+ *
  * Copyright 2008 The New York Times Company
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
+ *
+ * This copy is modified from the original. Per the license,
+ * this notice serves to indicate it is a changed file.
  */
 package com.nytlabs.corpus;
 
@@ -51,9 +54,12 @@ import org.xml.sax.SAXException;
  * <P>
  * Class for parsing New York Times articles from NITF files.
  * <P>
- * 
+ *
+ * The original version contained a possible memory leak:
+ * the BufferedReader object was not closed.
+ *
  * @author Evan Sandhaus
- * 
+ *
  */
 public class NYTCorpusDocumentParser {
 	/** NITF Constant */
@@ -263,7 +269,7 @@ public class NYTCorpusDocumentParser {
 
 	/**
 	 * Parse an New York Times Document from a file.
-	 * 
+	 *
 	 * @param file
 	 *            The file from which to parse the document.
 	 * @param disableValidation
@@ -660,7 +666,7 @@ public class NYTCorpusDocumentParser {
 	 * libraries to do this does not actually disable validation, this method
 	 * disables validation by removing the doctype declaration from the XML
 	 * document before it is parsed.
-	 * 
+	 *
 	 * @param file
 	 *            The file to parse.
 	 * @return The parsed document or null if an error occurs.
@@ -668,9 +674,8 @@ public class NYTCorpusDocumentParser {
 	private Document loadNonValidating(File file) {
 		Document document;
 		StringBuffer sb = new StringBuffer();
-		try {
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-					new FileInputStream(file), "UTF8"));
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(
+        new FileInputStream(file), "UTF8"));){
 			String line = null;
 			while ((line = in.readLine()) != null) {
 				sb.append(line + "\n");
@@ -696,7 +701,7 @@ public class NYTCorpusDocumentParser {
 
 	/**
 	 * Parse the specified file into a DOM Document.
-	 * 
+	 *
 	 * @param file
 	 *            The file to parse.
 	 * @return The parsed DOM Document or null if an error occurs.
@@ -722,10 +727,10 @@ public class NYTCorpusDocumentParser {
 
 	/**
 	 * Parse a string to a DOM document.
-	 * 
+	 *
 	 * @param s
 	 *            A string containing an XML document.
-	 * 
+	 *
 	 * @return The DOM document if it can be parsed, or null otherwise.
 	 */
 	private Document parseStringToDOM(String s, String encoding, File file) {
@@ -751,7 +756,7 @@ public class NYTCorpusDocumentParser {
 
 	/**
 	 * Parse a file containing an XML document, into a DOM object.
-	 * 
+	 *
 	 * @param filename
 	 *            A path to a valid file.
 	 * @param validating

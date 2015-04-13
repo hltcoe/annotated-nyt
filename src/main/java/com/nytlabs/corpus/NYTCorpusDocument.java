@@ -1,18 +1,21 @@
 /*
- *  
+ *
  * Copyright 2008 The New York Times Company
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
+ *
+ * This copy is modified from the original. Per the license,
+ * this notice serves to indicate it is a changed file.
  */
 package com.nytlabs.corpus;
 
@@ -30,9 +33,11 @@ import java.util.List;
  * This class represents a New York Times Corpus Document. See field comments
  * for individual field description.
  * <P>
- * 
+ *
+ * The original version of this class contained characters that could
+ * not be mapped to UTF-8 characters; those have been removed in this version.
+ *
  * @author Evan Sandhaus
- * 
  */
 public class NYTCorpusDocument {
 	/**
@@ -70,7 +75,7 @@ public class NYTCorpusDocument {
 	 * This field is most often defined for Obituaries and Book Reviews. These
 	 * tags are hand-assigned by a team of library scientists working for the
 	 * New York Times Indexing service.
-	 * 
+	 *
 	 * <ol>
 	 * <li>Politics and Government (U.S.) <li>Books and Magazines <li>Royalty
 	 * </ol>
@@ -110,7 +115,7 @@ public class NYTCorpusDocument {
 	 * <li>WEDDINGS
 	 * <li>The Accessories Channel
 	 * </ol>
-	 * 
+	 *
 	 */
 	protected String columnName;
 
@@ -515,7 +520,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the alternateURL property.
-	 * 
+	 *
 	 * @return the alternateURL
 	 */
 	public URL getAlternateURL() {
@@ -524,7 +529,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the articleAbstract property.
-	 * 
+	 *
 	 * @return the articleAbstract
 	 */
 	public String getArticleAbstract() {
@@ -533,7 +538,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the authorBiography property.
-	 * 
+	 *
 	 * @return the authorBiography
 	 */
 	public String getAuthorBiography() {
@@ -542,7 +547,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the banner property.
-	 * 
+	 *
 	 * @return the banner
 	 */
 	public String getBanner() {
@@ -551,7 +556,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the biographicalCategories property.
-	 * 
+	 *
 	 * @return the biographicalCategories
 	 */
 	public List<String> getBiographicalCategories() {
@@ -560,7 +565,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the body property.
-	 * 
+	 *
 	 * @return the body
 	 */
 	public String getBody() {
@@ -569,7 +574,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the byline property.
-	 * 
+	 *
 	 * @return the byline
 	 */
 	public String getByline() {
@@ -578,7 +583,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the columnName property.
-	 * 
+	 *
 	 * @return the columnName
 	 */
 	public String getColumnName() {
@@ -587,7 +592,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the columnNumber property.
-	 * 
+	 *
 	 * @return the columnNumber
 	 */
 	public Integer getColumnNumber() {
@@ -596,7 +601,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the correctionDate property.
-	 * 
+	 *
 	 * @return the correctionDate
 	 */
 	public Date getCorrectionDate() {
@@ -605,7 +610,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the correctionText property.
-	 * 
+	 *
 	 * @return the correctionText
 	 */
 	public String getCorrectionText() {
@@ -614,7 +619,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the credit property.
-	 * 
+	 *
 	 * @return the credit
 	 */
 	public String getCredit() {
@@ -623,7 +628,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the dateline property.
-	 * 
+	 *
 	 * @return the dateline
 	 */
 	public String getDateline() {
@@ -632,7 +637,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the dayOfWeek property.
-	 * 
+	 *
 	 * @return the dayOfWeek
 	 */
 	public String getDayOfWeek() {
@@ -641,7 +646,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the descriptors property.
-	 * 
+	 *
 	 * @return the descriptors
 	 */
 	public List<String> getDescriptors() {
@@ -650,7 +655,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the featurePage property.
-	 * 
+	 *
 	 * @return the featurePage
 	 */
 	public String getFeaturePage() {
@@ -659,7 +664,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the generalOnlineDescriptors property.
-	 * 
+	 *
 	 * @return the generalOnlineDescriptors
 	 */
 	public List<String> getGeneralOnlineDescriptors() {
@@ -668,7 +673,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the guid property.
-	 * 
+	 *
 	 * @return the guid
 	 */
 	public int getGuid() {
@@ -677,7 +682,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the headline property.
-	 * 
+	 *
 	 * @return the headline
 	 */
 	public String getHeadline() {
@@ -686,7 +691,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the kicker property.
-	 * 
+	 *
 	 * @return the kicker
 	 */
 	public String getKicker() {
@@ -695,7 +700,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the leadParagraph property.
-	 * 
+	 *
 	 * @return the leadParagraph
 	 */
 	public String getLeadParagraph() {
@@ -704,7 +709,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the locations property.
-	 * 
+	 *
 	 * @return the locations
 	 */
 	public List<String> getLocations() {
@@ -713,7 +718,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the names property.
-	 * 
+	 *
 	 * @return the names
 	 */
 	public List<String> getNames() {
@@ -722,7 +727,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the newsDesk property.
-	 * 
+	 *
 	 * @return the newsDesk
 	 */
 	public String getNewsDesk() {
@@ -731,7 +736,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the normalizedByline property.
-	 * 
+	 *
 	 * @return the normalizedByline
 	 */
 	public String getNormalizedByline() {
@@ -740,7 +745,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlineDescriptors property.
-	 * 
+	 *
 	 * @return the onlineDescriptors
 	 */
 	public List<String> getOnlineDescriptors() {
@@ -749,7 +754,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlineHeadline property.
-	 * 
+	 *
 	 * @return the onlineHeadline
 	 */
 	public String getOnlineHeadline() {
@@ -758,7 +763,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlineLeadParagraph property.
-	 * 
+	 *
 	 * @return the onlineLeadParagraph
 	 */
 	public String getOnlineLeadParagraph() {
@@ -767,7 +772,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlineLocations property.
-	 * 
+	 *
 	 * @return the onlineLocations
 	 */
 	public List<String> getOnlineLocations() {
@@ -776,7 +781,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlineOrganizations property.
-	 * 
+	 *
 	 * @return the onlineOrganizations
 	 */
 	public List<String> getOnlineOrganizations() {
@@ -785,7 +790,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlinePeople property.
-	 * 
+	 *
 	 * @return the onlinePeople
 	 */
 	public List<String> getOnlinePeople() {
@@ -794,7 +799,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlineSection property.
-	 * 
+	 *
 	 * @return the onlineSection
 	 */
 	public String getOnlineSection() {
@@ -803,7 +808,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the onlineTitles property.
-	 * 
+	 *
 	 * @return the onlineTitles
 	 */
 	public List<String> getOnlineTitles() {
@@ -812,7 +817,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the organizations property.
-	 * 
+	 *
 	 * @return the organizations
 	 */
 	public List<String> getOrganizations() {
@@ -821,7 +826,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the page property.
-	 * 
+	 *
 	 * @return the page
 	 */
 	public Integer getPage() {
@@ -830,7 +835,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the people property.
-	 * 
+	 *
 	 * @return the people
 	 */
 	public List<String> getPeople() {
@@ -839,7 +844,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the publicationDate property.
-	 * 
+	 *
 	 * @return the publicationDate
 	 */
 	public Date getPublicationDate() {
@@ -848,7 +853,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the publicationDayOfMonth property.
-	 * 
+	 *
 	 * @return the publicationDayOfMonth
 	 */
 	public Integer getPublicationDayOfMonth() {
@@ -857,7 +862,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the publicationMonth property.
-	 * 
+	 *
 	 * @return the publicationMonth
 	 */
 	public Integer getPublicationMonth() {
@@ -866,7 +871,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the publicationYear property.
-	 * 
+	 *
 	 * @return the publicationYear
 	 */
 	public Integer getPublicationYear() {
@@ -875,7 +880,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the section property.
-	 * 
+	 *
 	 * @return the section
 	 */
 	public String getSection() {
@@ -884,7 +889,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the seriesName property.
-	 * 
+	 *
 	 * @return the seriesName
 	 */
 	public String getSeriesName() {
@@ -893,7 +898,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the slug property.
-	 * 
+	 *
 	 * @return the slug
 	 */
 	public String getSlug() {
@@ -902,7 +907,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the sourceFile property.
-	 * 
+	 *
 	 * @return the sourceFile
 	 */
 	public File getSourceFile() {
@@ -911,7 +916,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the taxonomicClassifiers property.
-	 * 
+	 *
 	 * @return the taxonomicClassifiers
 	 */
 	public List<String> getTaxonomicClassifiers() {
@@ -920,7 +925,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the titles property.
-	 * 
+	 *
 	 * @return the titles
 	 */
 	public List<String> getTitles() {
@@ -929,7 +934,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the typesOfMaterial property.
-	 * 
+	 *
 	 * @return the typesOfMaterial
 	 */
 	public List<String> getTypesOfMaterial() {
@@ -938,7 +943,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the url property.
-	 * 
+	 *
 	 * @return the url
 	 */
 	public URL getUrl() {
@@ -947,7 +952,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Accessor for the wordCount property.
-	 * 
+	 *
 	 * @return the wordCount
 	 */
 	public Integer getWordCount() {
@@ -959,7 +964,7 @@ public class NYTCorpusDocument {
 	 * done by concatonating space characters to the end of the string until the
 	 * string is of the specified length. If, however, the string is initially
 	 * longer than the specified length then the original string is returned.
-	 * 
+	 *
 	 * @param s
 	 *            A string.
 	 * @param length
@@ -980,7 +985,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the alternateURL property.
-	 * 
+	 *
 	 * @param alternateURL
 	 *            the alternativeURL to set
 	 */
@@ -990,7 +995,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the articleAbstract property.
-	 * 
+	 *
 	 * @param articleAbstract
 	 *            the articleAbstract to set
 	 */
@@ -1000,7 +1005,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the authorBiography property.
-	 * 
+	 *
 	 * @param authorBiography
 	 *            the authorBiography to set
 	 */
@@ -1010,7 +1015,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the banner property.
-	 * 
+	 *
 	 * @param banner
 	 *            the banner to set
 	 */
@@ -1020,7 +1025,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the biographicalCategories property.
-	 * 
+	 *
 	 * @param biographicalCategories
 	 *            the biographicalCategories to set
 	 */
@@ -1030,7 +1035,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the body property.
-	 * 
+	 *
 	 * @param body
 	 *            the body to set
 	 */
@@ -1040,7 +1045,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the byline property.
-	 * 
+	 *
 	 * @param byline
 	 *            the byline to set
 	 */
@@ -1050,7 +1055,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the columnName property.
-	 * 
+	 *
 	 * @param columnName
 	 *            the columnName to set
 	 */
@@ -1060,7 +1065,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the columnNumber property.
-	 * 
+	 *
 	 * @param columnNumber
 	 *            the columnNumber to set
 	 */
@@ -1070,7 +1075,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the correctionDate property.
-	 * 
+	 *
 	 * @param correctionDate
 	 *            the correctionDate to set
 	 */
@@ -1080,7 +1085,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the correctionText property.
-	 * 
+	 *
 	 * @param correctionText
 	 *            the correctionText to set
 	 */
@@ -1090,7 +1095,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the credit property.
-	 * 
+	 *
 	 * @param credit
 	 *            the credit to set
 	 */
@@ -1100,7 +1105,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the dateline property.
-	 * 
+	 *
 	 * @param dateline
 	 *            the dateline to set
 	 */
@@ -1110,7 +1115,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the dayOfWeek property.
-	 * 
+	 *
 	 * @param dayOfWeek
 	 *            the dayOfWeek to set
 	 */
@@ -1120,7 +1125,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the descriptors property.
-	 * 
+	 *
 	 * @param descriptors
 	 *            the descriptors to set
 	 */
@@ -1130,7 +1135,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the featurePage property.
-	 * 
+	 *
 	 * @param featurePage
 	 *            the featurePage to set
 	 */
@@ -1140,7 +1145,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the generalOnlineDescriptors property.
-	 * 
+	 *
 	 * @param generalOnlineDescriptors
 	 *            the generalOnlineDescriptors to set
 	 */
@@ -1151,7 +1156,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the guid property.
-	 * 
+	 *
 	 * @param guid
 	 *            the guid to set
 	 */
@@ -1161,7 +1166,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the headline property.
-	 * 
+	 *
 	 * @param headline
 	 *            the headline to set
 	 */
@@ -1171,7 +1176,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the kicker property.
-	 * 
+	 *
 	 * @param kicker
 	 *            the kicker to set
 	 */
@@ -1181,7 +1186,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the leadParagraph property.
-	 * 
+	 *
 	 * @param leadParagraph
 	 *            the leadParagraph to set
 	 */
@@ -1191,7 +1196,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the locations property.
-	 * 
+	 *
 	 * @param locations
 	 *            the locations to set
 	 */
@@ -1201,7 +1206,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the names property.
-	 * 
+	 *
 	 * @param names
 	 *            the names to set
 	 */
@@ -1211,7 +1216,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the newsDesk property.
-	 * 
+	 *
 	 * @param newsDesk
 	 *            the newsDesk to set
 	 */
@@ -1221,7 +1226,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the normalizedByline property.
-	 * 
+	 *
 	 * @param normalizedByline
 	 *            the normalizedByline to set
 	 */
@@ -1231,7 +1236,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlineDescriptors property.
-	 * 
+	 *
 	 * @param onlineDescriptors
 	 *            the onlineDescriptors to set
 	 */
@@ -1241,7 +1246,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlineHeadline property.
-	 * 
+	 *
 	 * @param onlineHeadline
 	 *            the onlineHeadline to set
 	 */
@@ -1251,7 +1256,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlineLeadParagraph property.
-	 * 
+	 *
 	 * @param onlineLeadParagraph
 	 *            the onlineLeadParagraph to set
 	 */
@@ -1261,7 +1266,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlineLocations property.
-	 * 
+	 *
 	 * @param onlineLocations
 	 *            the onlineLocations to set
 	 */
@@ -1271,7 +1276,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlineOrganizations property.
-	 * 
+	 *
 	 * @param onlineOrganizations
 	 *            the onlineOrganizations to set
 	 */
@@ -1281,7 +1286,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlinePeople property.
-	 * 
+	 *
 	 * @param onlinePeople
 	 *            the onlinePeople to set
 	 */
@@ -1291,7 +1296,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlineSection property.
-	 * 
+	 *
 	 * @param onlineSection
 	 *            the onlineSection to set
 	 */
@@ -1301,7 +1306,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the onlineTitles property.
-	 * 
+	 *
 	 * @param onlineTitles
 	 *            the onlineTitles to set
 	 */
@@ -1311,7 +1316,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the organizations property.
-	 * 
+	 *
 	 * @param organizations
 	 *            the organizations to set
 	 */
@@ -1321,7 +1326,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the page property.
-	 * 
+	 *
 	 * @param page
 	 *            the page to set
 	 */
@@ -1331,7 +1336,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the people property.
-	 * 
+	 *
 	 * @param people
 	 *            the people to set
 	 */
@@ -1341,7 +1346,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the publicationDate property.
-	 * 
+	 *
 	 * @param publicationDate
 	 *            the publicationDate to set
 	 */
@@ -1351,7 +1356,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the publicationDayOfMonth property.
-	 * 
+	 *
 	 * @param publicationDayOfMonth
 	 *            the publicationDayOfMonth to set
 	 */
@@ -1361,7 +1366,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the publicationMonth property.
-	 * 
+	 *
 	 * @param publicationMonth
 	 *            the publicationMonth to set
 	 */
@@ -1371,7 +1376,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the publicationYear property.
-	 * 
+	 *
 	 * @param publicationYear
 	 *            the publicationYear to set
 	 */
@@ -1381,7 +1386,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the section property.
-	 * 
+	 *
 	 * @param section
 	 *            the section to set
 	 */
@@ -1391,7 +1396,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the seriesName property.
-	 * 
+	 *
 	 * @param seriesName
 	 *            the seriesName to set
 	 */
@@ -1401,7 +1406,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the slug property.
-	 * 
+	 *
 	 * @param slug
 	 *            the slug to set
 	 */
@@ -1411,7 +1416,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the sourceFile property.
-	 * 
+	 *
 	 * @param sourceFile
 	 *            the sourceFile to set
 	 */
@@ -1421,7 +1426,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the taxonomicClassifiers property.
-	 * 
+	 *
 	 * @param taxonomicClassifiers
 	 *            the taxonomicClassifiers to set
 	 */
@@ -1431,7 +1436,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the titles property.
-	 * 
+	 *
 	 * @param titles
 	 *            the titles to set
 	 */
@@ -1441,7 +1446,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the typesOfMaterial property.
-	 * 
+	 *
 	 * @param typesOfMaterial
 	 *            the typesOfMaterial to set
 	 */
@@ -1451,7 +1456,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the url property.
-	 * 
+	 *
 	 * @param url
 	 *            the url to set
 	 */
@@ -1461,7 +1466,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Setter for the wordCount property.
-	 * 
+	 *
 	 * @param wordCount
 	 *            the wordCount to set
 	 */
@@ -1471,7 +1476,7 @@ public class NYTCorpusDocument {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
@@ -1530,7 +1535,7 @@ public class NYTCorpusDocument {
 
 	/**
 	 * Append a property to the specified string.
-	 * 
+	 *
 	 * @param sb
 	 * @param propertyName
 	 * @param propertyValue
