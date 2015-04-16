@@ -270,6 +270,10 @@ public class NYTCorpusDocumentParser {
 	/** NITF Constant */
 	private static final String GENERAL_DESCRIPTOR_ATTRIBUTE = "general_descriptor";
 
+	public NYTCorpusDocument fromByteArray(byte[] bytes, boolean validating) {
+    return this.parseNYTCorpusDocumentFromFile(new ByteArrayInputStream(bytes), validating);
+  }
+	
 	/**
 	 * Parse an New York Times Document from a file.
 	 *
