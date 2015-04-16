@@ -39,14 +39,22 @@ public class AnnotatedNYTDocument {
   }
   
   public List<String> getLeadParagraphAsList() {
+    Optional<String> lpo = Optional.ofNullable(this.nytdoc.getLeadParagraph());
+    List<String> toRet = lpo.isPresent() ? unixNewlineStringToList(lpo.get()) : new ArrayList<String>();
+    return toRet;
+  }
+  
+  private static final List<String> unixNewlineStringToList(final String unixNewlineStr) {
     List<String> strList = new ArrayList<String>();
-    // TODO
+    String[] split = unixNewlineStr.split("\n");
+    for (String s : split)
+      strList.add(s);
     return strList;
   }
   
   public List<String> getBodyAsList() {
-    List<String> strList = new ArrayList<String>();
-    // TODO
-    return strList;    
+    Optional<String> lpo = Optional.ofNullable(this.nytdoc.getBody());
+    List<String> toRet = lpo.isPresent() ? unixNewlineStringToList(lpo.get()) : new ArrayList<String>();
+    return toRet;
   }
 }
