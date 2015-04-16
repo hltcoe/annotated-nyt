@@ -39,6 +39,8 @@ import java.util.List;
  * 
  * This version also contains changes to allow for the body section
  * to be split into sections that can more readily be processed. 
+ * 
+ * Additional changes include fixing of various unclosed HTML tags.
  *
  * @author Evan Sandhaus
  */
@@ -80,7 +82,7 @@ public class NYTCorpusDocument {
 	 * New York Times Indexing service.
 	 *
 	 * <ol>
-	 * <li>Politics and Government (U.S.) <li>Books and Magazines <li>Royalty
+	 * <li>Politics and Government (U.S.)</li> <li>Books and Magazines</li> <li>Royalty</li>
 	 * </ol>
 	 */
 	protected List<String> biographicalCategories = new ArrayList<String>();
@@ -99,10 +101,10 @@ public class NYTCorpusDocument {
 	 * <P>
 	 * Sample byline:
 	 * <ul>
-	 * <li>By James Reston
+	 * <li>By James Reston</li>
 	 * <li>By JAMES GLANZ; William J. Broad contributed reporting for this
-	 * article.
-	 * <li>By ADAM NAGOURNEY and JEFF ZELENY
+	 * article.</li>
+	 * <li>By ADAM NAGOURNEY and JEFF ZELENY</li>
 	 * </ul>
 	 */
 	protected String byline;
@@ -112,11 +114,11 @@ public class NYTCorpusDocument {
 	 * of that column.
 	 * <p>
 	 * Sample Column Names:
-	 * <p>
+	 * </p>
 	 * <ol>
-	 * <li>World News Briefs
-	 * <li>WEDDINGS
-	 * <li>The Accessories Channel
+	 * <li>World News Briefs</li>
+	 * <li>WEDDINGS</li>
+	 * <li>The Accessories Channel</li>
 	 * </ol>
 	 *
 	 */
@@ -158,18 +160,18 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Sample datelines:
 	 * <ul>
-	 * <li>WASHINGTON, April 30
-	 * <li>RIYADH, Saudi Arabia, March 29
-	 * <li>ONTARIO, N.Y., Jan. 26
+	 * <li>WASHINGTON, April 30</li>
+	 * <li>RIYADH, Saudi Arabia, March 29</li>
+	 * <li>ONTARIO, N.Y., Jan. 26</li>
 	 * </ul>
 	 * Please note:
 	 * <ol>
 	 * <li>The dateline location is the location from which the article was
 	 * filed. Often times this location is related to the content of the
-	 * article, but this is not guaranteed.
+	 * article, but this is not guaranteed.</li>
 	 * <li>The date specified for the dateline is often but not always the day
-	 * previous to the publication date.
-	 * <li>The date is usually but not always specified.
+	 * previous to the publication date.</li>
+	 * <li>The date is usually but not always specified.</li>
 	 * </ol>
 	 */
 	protected String dateline;
@@ -177,8 +179,13 @@ public class NYTCorpusDocument {
 	/**
 	 * This field specifies the day of week on which the article was published.
 	 * <ul>
-	 * <li>Monday <li>Tuesday <li>Wednesday <li>Thursday <li>Friday <li>Saturday
-	 * <li>Sunday
+	 * <li>Monday</li> 
+	 * <li>Tuesday</li>
+	 * <li>Wednesday</li>
+	 * <li>Thursday</li>
+	 * <li>Friday</li>
+	 * <li>Saturday</li>
+	 * <li>Sunday</li>
 	 * </ul>
 	 */
 	protected String dayOfWeek;
@@ -191,9 +198,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>ECONOMIC CONDITIONS AND TRENDS
-	 * <li>AIRPLANES
-	 * <li>VIOLINS
+	 * <li>ECONOMIC CONDITIONS AND TRENDS</li>
+	 * <li>AIRPLANES</li>
+	 * <li>VIOLINS</li>
 	 * </ol>
 	 */
 	protected List<String> descriptors = new ArrayList<String>();
@@ -211,9 +218,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Surfing
-	 * <li>Venice Biennale
-	 * <li>Ranches
+	 * <li>Surfing</li>
+	 * <li>Venice Biennale</li>
+	 * <li>Ranches</li>
 	 * </ol>
 	 */
 	protected List<String> generalOnlineDescriptors = new ArrayList<String>();
@@ -251,9 +258,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Wellsboro (Pa)
-	 * <li>Kansas City (Kan)
-	 * <li>Park Slope (NYC)
+	 * <li>Wellsboro (Pa)</li>
+	 * <li>Kansas City (Kan)</li>
+	 * <li>Park Slope (NYC)</li>
 	 * </ol>
 	 */
 	protected List<String> locations = new ArrayList<String>();
@@ -265,9 +272,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Azza Fahmy
-	 * <li>George C. Izenour
-	 * <li>Chris Schenkel
+	 * <li>Azza Fahmy</li>
+	 * <li>George C. Izenour</li>
+	 * <li>Chris Schenkel</li>
 	 * </ol>
 	 */
 	protected List<String> names = new ArrayList<String>();
@@ -293,9 +300,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Marriages
-	 * <li>Parks and Other Recreation Areas
-	 * <li>Cooking and Cookbooks
+	 * <li>Marriages</li>
+	 * <li>Parks and Other Recreation Areas</li>
+	 * <li>Cooking and Cookbooks</li>
 	 * </ol>
 	 */
 	protected List<String> onlineDescriptors = new ArrayList<String>();
@@ -319,9 +326,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Hollywood
-	 * <li>Los Angeles
-	 * <li>Arcadia
+	 * <li>Hollywood</li>
+	 * <li>Los Angeles</li>
+	 * <li>Arcadia</li>
 	 * </ol>
 	 */
 	protected List<String> onlineLocations = new ArrayList<String>();
@@ -333,9 +340,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Nintendo Company Limited
-	 * <li>Yeshiva University
-	 * <li>Rose Center
+	 * <li>Nintendo Company Limited</li>
+	 * <li>Yeshiva University</li>
+	 * <li>Rose Center</li>
 	 * </ol>
 	 */
 	protected List<String> onlineOrganizations = new ArrayList<String>();
@@ -347,9 +354,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Lopez, Jennifer
-	 * <li>Joyce, James
-	 * <li>Robinson, Jackie
+	 * <li>Lopez, Jennifer</li>
+	 * <li>Joyce, James</li>
+	 * <li>Robinson, Jackie</li>
 	 * </ol>
 	 */
 	protected List<String> onlinePeople = new ArrayList<String>();
@@ -368,9 +375,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Matchstick Men (Movie)
-	 * <li>Blades of Glory (Movie)
-	 * <li>Bridge & Tunnel (Play)
+	 * <li>Matchstick Men (Movie)</li>
+	 * <li>Blades of Glory (Movie)</li>
+	 * <li>Bridge and Tunnel (Play)</li>
 	 * </ol>
 	 */
 	protected List<String> onlineTitles = new ArrayList<String>();
@@ -383,9 +390,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Circuit City Stores Inc
-	 * <li>Delaware County Community College (Pa)
-	 * <li>CONNECTICUT GRAND OPERA
+	 * <li>Circuit City Stores Inc</li>
+	 * <li>Delaware County Community College (Pa)</li>
+	 * <li>CONNECTICUT GRAND OPERA</li>
 	 * </ol>
 	 */
 	protected List<String> organizations = new ArrayList<String>();
@@ -406,9 +413,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>REAGAN, RONALD WILSON (PRES)
-	 * <li>BEGIN, MENACHEM (PRIME MIN)
-	 * <li>COLLINS, GLENN
+	 * <li>REAGAN, RONALD WILSON (PRES)</li>
+	 * <li>BEGIN, MENACHEM (PRIME MIN)</li>
+	 * <li>COLLINS, GLENN</li>
 	 * </ol>
 	 */
 	protected List<String> people = new ArrayList<String>();
@@ -454,7 +461,8 @@ public class NYTCorpusDocument {
 	 * other articles published on the same day. Please note, however, that
 	 * different articles on different days may have the same slug.
 	 * <ul>
-	 * <li>30other <li>12reunion
+	 * <li>30other</li> 
+	 * <li>12reunion</li>
 	 * </ul>
 	 */
 	protected String slug;
@@ -473,9 +481,9 @@ public class NYTCorpusDocument {
 	 * Examples Include:
 	 * <ol>
 	 * <li>Top/Features/Travel/Guides/Destinations/North America/United
-	 * States/Arizona
-	 * <li>Top/News/U.S./Rockies
-	 * <li>Top/Opinion
+	 * States/Arizona</li>
+	 * <li>Top/News/U.S./Rockies</li>
+	 * <li>Top/Opinion</li>
 	 * </ol>
 	 */
 	protected List<String> taxonomicClassifiers = new ArrayList<String>();
@@ -487,9 +495,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>Greystoke: The Legend of Tarzan, Lord of the Apes (Movie)
-	 * <li>Law & Order (TV Program)
-	 * <li>BATTLEFIELD EARTH (BOOK)
+	 * <li>Greystoke: The Legend of Tarzan, Lord of the Apes (Movie)</li>
+	 * <li>Law and Order (TV Program)</li>
+	 * <li>BATTLEFIELD EARTH (BOOK)</li>
 	 * </ol>
 	 */
 	protected List<String> titles = new ArrayList<String>();
@@ -501,9 +509,9 @@ public class NYTCorpusDocument {
 	 * <p>
 	 * Examples Include:
 	 * <ol>
-	 * <li>REVIEW
-	 * <li>OBITUARY
-	 * <li>ANALYSIS
+	 * <li>REVIEW</li>
+	 * <li>OBITUARY</li>
+	 * <li>ANALYSIS</li>
 	 * </ol>
 	 */
 	protected List<String> typesOfMaterial = new ArrayList<String>();

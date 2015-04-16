@@ -279,7 +279,7 @@ public class NYTCorpusDocumentParser {
 	 *
 	 * @param file
 	 *            The file from which to parse the document.
-	 * @param disableValidation
+	 * @param validating
 	 *            True if the file is to be validated against the nitf DTD and
 	 *            false if it is not. It is recommended that validation be
 	 *            disabled, as all documents in the corpus have previously been
@@ -319,7 +319,7 @@ public class NYTCorpusDocumentParser {
    * 
    * @param is
    *            The {@link InputStream} from which to parse the document.
-   * @param disableValidation
+   * @param validating
    *            True if the file is to be validated against the nitf DTD and
    *            false if it is not. It is recommended that validation be
    *            disabled, as all documents in the corpus have previously been
