@@ -36,6 +36,9 @@ import java.util.List;
  *
  * The original version of this class contained characters that could
  * not be mapped to UTF-8 characters; those have been removed in this version.
+ * 
+ * This version also contains changes to allow for the body section
+ * to be split into sections that can more readily be processed. 
  *
  * @author Evan Sandhaus
  */
