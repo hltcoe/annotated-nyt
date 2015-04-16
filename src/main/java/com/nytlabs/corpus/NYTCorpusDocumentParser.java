@@ -57,6 +57,9 @@ import org.xml.sax.SAXException;
  *
  * The original version contained a possible memory leak:
  * the BufferedReader object was not closed.
+ * 
+ * Additionally, an API to read from an {@link InputStream} was
+ * added.
  *
  * @author Evan Sandhaus
  *
@@ -306,6 +309,171 @@ public class NYTCorpusDocumentParser {
 
 		return ldcDocument;
 	}
+	
+	/**
+   * Parse an New York Times Document from an {@link InputStream}.
+   * 
+   * @param is
+   *            The {@link InputStream} from which to parse the document.
+   * @param disableValidation
+   *            True if the file is to be validated against the nitf DTD and
+   *            false if it is not. It is recommended that validation be
+   *            disabled, as all documents in the corpus have previously been
+   *            validated against the NITF DTD.
+   * @return The parsed document, or null if an error occurs.
+   */
+  public NYTCorpusDocument parseNYTCorpusDocumentFromFile(InputStream is, boolean validating) {
+
+    Document document = null;
+    if (validating) {
+      document = loadValidating(is);
+    } else {
+      document = loadNonValidating(is);
+    }
+    return parseNYTCorpusDocumentFromDOMDocument(is, document);
+  }
+  
+  public NYTCorpusDocument parseNYTCorpusDocumentFromDOMDocument(InputStream is, Document document) {
+    NYTCorpusDocument ldcDocument = new NYTCorpusDocument();
+    ldcDocument.setSourceFile(null);
+    NodeList children = document.getChildNodes();
+    for (int i = 0; i < children.getLength(); i++) {
+      Node child = children.item(i);
+      String name = child.getNodeName();
+      if (name.equals(NITF_TAG)) {
+        handleNITFNode(child, ldcDocument);
+      }
+    }
+
+    return ldcDocument;
+  }
+  
+  /**
+   * Parse the specified file into a DOM Document.
+   * 
+   * @param file
+   *            The file to parse.
+   * @return The parsed DOM Document or null if an error occurs.
+   */
+  private Document loadValidating(InputStream is) {
+    try {
+      return getDOMObject(is, true);
+    } catch (SAXException e) {
+      e.printStackTrace();
+      System.out.println("Error parsing digital document from nitf inputstream.");
+    } catch (IOException e) {
+      e.printStackTrace();
+      System.out.println("Error parsing digital document from nitf inputstream.");
+    } catch (ParserConfigurationException e) {
+      e.printStackTrace();
+      System.out.println("Error parsing digital document from nitf inputstream.");
+    }
+    return null;
+  }
+  
+  /**
+   * Load a document without validating it. Since instructing the java.xml
+   * libraries to do this does not actually disable validation, this method
+   * disables validation by removing the doctype declaration from the XML
+   * document before it is parsed.
+   * 
+   * @param file
+   *            The file to parse.
+   * @return The parsed document or null if an error occurs.
+   */
+  private Document loadNonValidating(InputStream is) {
+    Document document;
+    StringBuffer sb = new StringBuffer();
+    BufferedReader in = null;
+    try {
+      in = new BufferedReader(new InputStreamReader(is, "UTF8"));
+      String line = null;
+      while ((line = in.readLine()) != null) {
+        sb.append(line + "\n");
+      }
+      String xmlData = sb.toString();
+      xmlData = xmlData.replace("<!DOCTYPE nitf " + "SYSTEM \"http://www.nitf.org/" + "IPTC/NITF/3.3/specification/dtd/nitf-3-3.dtd\">", "");
+      document = parseStringToDOM(xmlData, "UTF-8");
+      return document;
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
+      System.out.println("Error loading inputstream.");
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+      System.out.println("Error loading file inputstream.");
+    } catch (IOException e) {
+      e.printStackTrace();
+      System.out.println("Error loading file inputstream.");
+    } finally {
+      if (in != null)
+        try {
+          in.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+    }
+    return null;
+  }
+  
+  /**
+   * Parse a string to a DOM document.
+   * 
+   * @param s
+   *            A string containing an XML document.
+   * 
+   * @return The DOM document if it can be parsed, or null otherwise.
+   */
+  private Document parseStringToDOM(String s, String encoding) {
+    try {
+      DocumentBuilderFactory factory = DocumentBuilderFactory
+          .newInstance();
+      factory.setValidating(false);
+      InputStream is = new ByteArrayInputStream(s.getBytes(encoding));
+      Document doc = factory.newDocumentBuilder().parse(is);
+      return doc;
+    } catch (SAXException e) {
+      e.printStackTrace();
+      System.out.println("Exception processing string.");
+    } catch (ParserConfigurationException e) {
+      e.printStackTrace();
+      System.out.println("Exception processing string.");
+    } catch (IOException e) {
+      e.printStackTrace();
+      System.out.println("Exception processing string.");
+    }
+    return null;
+  }
+  
+  /**
+   * Parse an {@link InputStream} containing an XML document, into a DOM object.
+   * 
+   * @param is
+   *            An {@link InputStream} representing an xml file.
+   * @param validating
+   *            True iff validating should be turned on.
+   * @return A DOM Object containing a parsed XML document or a null value if
+   *         there is an error in parsing.
+   * @throws ParserConfigurationException
+   * @throws IOException
+   * @throws SAXException
+   */
+  private Document getDOMObject(InputStream is, boolean validating)
+      throws SAXException, IOException, ParserConfigurationException {
+
+    // Create a builder factory
+
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    if (!validating) {
+      factory.setValidating(validating);
+      factory.setSchema(null);
+      factory.setNamespaceAware(false);
+    }
+
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    // Create the builder and parse the file
+    Document doc = builder.parse(is);
+    return doc;
+  }
 
 	private void handleNITFNode(Node node, NYTCorpusDocument ldcDocument) {
 		NodeList children = node.getChildNodes();
