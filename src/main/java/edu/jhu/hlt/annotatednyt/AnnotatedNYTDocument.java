@@ -75,8 +75,8 @@ public class AnnotatedNYTDocument {
       return stuff;
   }
 
-  public String getHeadline() {
-    return this.nytdoc.getHeadline();
+  public Optional<String> getHeadline() {
+    return Optional.ofNullable(this.nytdoc.getHeadline());
   }
 
   public Optional<String> getOnlineHeadline() {
@@ -140,8 +140,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the columnNumber
    */
-  public Integer getColumnNumber() {
-    return this.nytdoc.getColumnNumber();
+  public Optional<Integer> getColumnNumber() {
+    return Optional.ofNullable(this.nytdoc.getColumnNumber());
   }
 
   /**
@@ -293,8 +293,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the page
    */
-  public Integer getPage() {
-    return this.nytdoc.getPage();
+  public Optional<Integer> getPage() {
+    return Optional.ofNullable(this.nytdoc.getPage());
   }
 
   /**
@@ -347,8 +347,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the section
    */
-  public String getSection() {
-    return this.nytdoc.getSection();
+  public Optional<String> getSection() {
+    return Optional.ofNullable(this.nytdoc.getSection());
   }
 
   /**
@@ -421,8 +421,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the wordCount
    */
-  public Integer getWordCount() {
-    return this.nytdoc.getWordCount();
+  public Optional<Integer> getWordCount() {
+    return Optional.ofNullable(this.nytdoc.getWordCount());
   }
 
   /* (non-Javadoc)
