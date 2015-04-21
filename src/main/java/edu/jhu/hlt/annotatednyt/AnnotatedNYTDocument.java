@@ -21,15 +21,15 @@ import com.nytlabs.corpus.NYTCorpusDocument;
 public class AnnotatedNYTDocument {
 
   private final NYTCorpusDocument nytdoc;
-  
+
   public AnnotatedNYTDocument(final NYTCorpusDocument nytdoc) {
     this.nytdoc = nytdoc;
   }
-  
+
   public Integer getGuid() {
     return this.nytdoc.getGuid();
   }
-  
+
   public List<String> getOnlineSectionAsList() {
     List<String> onlineSectionList = new ArrayList<String>();
     Optional<String> online = Optional.ofNullable(this.nytdoc.getSection());
@@ -38,28 +38,28 @@ public class AnnotatedNYTDocument {
       for (String s : split)
         onlineSectionList.add(s);
     });
-    
+
     return onlineSectionList;
   }
-  
+
   public List<String> getLeadParagraphAsList() {
     return getOptionalStringFieldAsList(this.nytdoc.getLeadParagraph());
   }
-  
+
   public List<String> getOnlineLeadParagraphAsList() {
     return getOptionalStringFieldAsList(this.nytdoc.getOnlineLeadParagraph());
   }
-  
+
   public List<String> getBodyAsList() {
     return getOptionalStringFieldAsList(this.nytdoc.getBody());
   }
-  
+
   private static final List<String> getOptionalStringFieldAsList(final String fieldStr) {
     final Optional<String> field = Optional.ofNullable(fieldStr);
     List<String> toRet = field.isPresent() ? unixNewlineStringToList(field.get()) : new ArrayList<String>();
     return toRet;
   }
-  
+
   private static final List<String> unixNewlineStringToList(final String unixNewlineStr) {
     List<String> strList = new ArrayList<String>();
     String[] split = unixNewlineStr.split("\n");
@@ -67,70 +67,70 @@ public class AnnotatedNYTDocument {
       strList.add(s);
     return strList;
   }
-  
+
   private static final <T> List<T> nullListAsEmptyList(List<T> stuff) {
     if (stuff == null)
       return new ArrayList<T>();
     else
       return stuff;
   }
-  
+
   public String getHeadline() {
     return this.nytdoc.getHeadline();
   }
-  
+
   public String getOnlineHeadline() {
     return this.nytdoc.getOnlineHeadline();
   }
-  
+
   public String getByline() {
     return this.nytdoc.getByline();
   }
-  
+
   public String getDateline() {
     return this.nytdoc.getDateline();
   }
-  
+
   public String getArticleAbstract() {
     return this.nytdoc.getArticleAbstract();
   }
-  
+
   public String getLeadParagraph() {
     return this.nytdoc.getLeadParagraph();
   }
-  
+
   public String getOnlineLeadParagraph() {
     return this.nytdoc.getOnlineLeadParagraph();
   }
-  
+
   public String getCorrectionText() {
     return this.nytdoc.getCorrectionText();
   }
-  
+
   public String getKicker() {
     return this.nytdoc.getKicker();
   }
-  
+
   public Optional<URL> getAlternateURL() {
     return Optional.ofNullable(this.nytdoc.getAlternateURL());
   }
-  
+
   public List<String> getDescriptors() {
     return nullListAsEmptyList(this.nytdoc.getDescriptors());
   }
-  
+
   public String getAuthorBiography() {
     return this.nytdoc.getAuthorBiography();
   }
-  
+
   public String getBanner() {
     return this.nytdoc.getBanner();
   }
-  
+
   public List<String> getBiographicalCategories() {
     return nullListAsEmptyList(this.nytdoc.getBiographicalCategories());
   }
-  
+
   public String getColumnName() {
     return this.nytdoc.getColumnName();
   }
@@ -143,7 +143,7 @@ public class AnnotatedNYTDocument {
   public Integer getColumnNumber() {
     return this.nytdoc.getColumnNumber();
   }
-  
+
   /**
    * Accessor for the correctionDate property.
    *
@@ -405,7 +405,7 @@ public class AnnotatedNYTDocument {
   public List<String> getTypesOfMaterial() {
     return nullListAsEmptyList(this.nytdoc.getTypesOfMaterial());
   }
-  
+
   /**
    * Accessor for the url property.
    *
@@ -424,7 +424,7 @@ public class AnnotatedNYTDocument {
   public Integer getWordCount() {
     return this.nytdoc.getWordCount();
   }
-  
+
 //  if (cDoc.getColumnNumber() != null)
 //    ni.setColumnNumber(cDoc.getColumnNumber());
 //  final Date dt = cDoc.getCorrectionDate();
@@ -432,7 +432,7 @@ public class AnnotatedNYTDocument {
 //    ni.setCorrectionDate(dt.getTime());
 //  ni.setCorrectionText(cDoc.getCorrectionText());
 //  ni.setCredit(cDoc.getCredit());
-//  
+//
 //  ni.setDayOfWeek(cDoc.getDayOfWeek());
 //  if(cDoc.getDescriptors() != null && cDoc.getDescriptors().size() > 0) {
 //    ni.setDescriptorList(cDoc.getDescriptors());
@@ -441,9 +441,9 @@ public class AnnotatedNYTDocument {
 //  if(cDoc.getGeneralOnlineDescriptors() != null && cDoc.getGeneralOnlineDescriptors().size() > 0) {
 //    ni.setGeneralOnlineDescriptorList(cDoc.getGeneralOnlineDescriptors());
 //  }
-//  
+//
 //  ni.setGuid(cDoc.getGuid());
-//  
+//
 //  ni.setKicker(cDoc.getKicker());
 //  ni.setLeadParagraphList(cDoc.getLeadParagraphAsList());
 //
