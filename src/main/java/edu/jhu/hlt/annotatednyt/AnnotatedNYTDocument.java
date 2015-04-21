@@ -231,7 +231,7 @@ public class AnnotatedNYTDocument {
    * @return the onlineDescriptors
    */
   public List<String> getOnlineDescriptors() {
-    return nullListAsEmptyList(this.getOnlineDescriptors());
+    return nullListAsEmptyList(this.nytdoc.getOnlineDescriptors());
   }
 
   /**
