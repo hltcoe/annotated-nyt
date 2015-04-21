@@ -424,4 +424,121 @@ public class AnnotatedNYTDocument {
   public Integer getWordCount() {
     return this.nytdoc.getWordCount();
   }
+
+  /* (non-Javadoc)
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    final int maxLen = 3;
+    StringBuilder builder = new StringBuilder();
+    builder.append("AnnotatedNYTDocument [getGuid()=");
+    builder.append(getGuid());
+    builder.append(", getOnlineSectionAsList()=");
+    builder.append(getOnlineSectionAsList() != null ? getOnlineSectionAsList().subList(0, Math.min(getOnlineSectionAsList().size(), maxLen)) : null);
+    builder.append(", getLeadParagraphAsList()=");
+    builder.append(getLeadParagraphAsList() != null ? getLeadParagraphAsList().subList(0, Math.min(getLeadParagraphAsList().size(), maxLen)) : null);
+    builder.append(", getOnlineLeadParagraphAsList()=");
+    builder.append(getOnlineLeadParagraphAsList() != null ? getOnlineLeadParagraphAsList().subList(0, Math.min(getOnlineLeadParagraphAsList().size(), maxLen))
+        : null);
+    builder.append(", getBodyAsList()=");
+    builder.append(getBodyAsList() != null ? getBodyAsList().subList(0, Math.min(getBodyAsList().size(), maxLen)) : null);
+    builder.append(", getHeadline()=");
+    builder.append(getHeadline());
+    builder.append(", getOnlineHeadline()=");
+    builder.append(getOnlineHeadline());
+    builder.append(", getByline()=");
+    builder.append(getByline());
+    builder.append(", getDateline()=");
+    builder.append(getDateline());
+    builder.append(", getArticleAbstract()=");
+    builder.append(getArticleAbstract());
+    builder.append(", getLeadParagraph()=");
+    builder.append(getLeadParagraph());
+    builder.append(", getOnlineLeadParagraph()=");
+    builder.append(getOnlineLeadParagraph());
+    builder.append(", getCorrectionText()=");
+    builder.append(getCorrectionText());
+    builder.append(", getKicker()=");
+    builder.append(getKicker());
+    builder.append(", getAlternateURL()=");
+    builder.append(getAlternateURL());
+    builder.append(", getDescriptors()=");
+    builder.append(getDescriptors() != null ? getDescriptors().subList(0, Math.min(getDescriptors().size(), maxLen)) : null);
+    builder.append(", getAuthorBiography()=");
+    builder.append(getAuthorBiography());
+    builder.append(", getBanner()=");
+    builder.append(getBanner());
+    builder.append(", getBiographicalCategories()=");
+    builder.append(getBiographicalCategories() != null ? getBiographicalCategories().subList(0, Math.min(getBiographicalCategories().size(), maxLen)) : null);
+    builder.append(", getColumnName()=");
+    builder.append(getColumnName());
+    builder.append(", getColumnNumber()=");
+    builder.append(getColumnNumber());
+    builder.append(", getCorrectionDate()=");
+    builder.append(getCorrectionDate());
+    builder.append(", getCredit()=");
+    builder.append(getCredit());
+    builder.append(", getDayOfWeek()=");
+    builder.append(getDayOfWeek());
+    builder.append(", getFeaturePage()=");
+    builder.append(getFeaturePage());
+    builder.append(", getGeneralOnlineDescriptors()=");
+    builder.append(getGeneralOnlineDescriptors() != null ? getGeneralOnlineDescriptors().subList(0, Math.min(getGeneralOnlineDescriptors().size(), maxLen))
+        : null);
+    builder.append(", getLocations()=");
+    builder.append(getLocations() != null ? getLocations().subList(0, Math.min(getLocations().size(), maxLen)) : null);
+    builder.append(", getNames()=");
+    builder.append(getNames() != null ? getNames().subList(0, Math.min(getNames().size(), maxLen)) : null);
+    builder.append(", getNewsDesk()=");
+    builder.append(getNewsDesk());
+    builder.append(", getNormalizedByline()=");
+    builder.append(getNormalizedByline());
+    builder.append(", getOnlineDescriptors()=");
+    builder.append(getOnlineDescriptors() != null ? getOnlineDescriptors().subList(0, Math.min(getOnlineDescriptors().size(), maxLen)) : null);
+    builder.append(", getOnlineLocations()=");
+    builder.append(getOnlineLocations() != null ? getOnlineLocations().subList(0, Math.min(getOnlineLocations().size(), maxLen)) : null);
+    builder.append(", getOnlineOrganizations()=");
+    builder.append(getOnlineOrganizations() != null ? getOnlineOrganizations().subList(0, Math.min(getOnlineOrganizations().size(), maxLen)) : null);
+    builder.append(", getOnlinePeople()=");
+    builder.append(getOnlinePeople() != null ? getOnlinePeople().subList(0, Math.min(getOnlinePeople().size(), maxLen)) : null);
+    builder.append(", getOnlineSection()=");
+    builder.append(getOnlineSection());
+    builder.append(", getOnlineTitles()=");
+    builder.append(getOnlineTitles() != null ? getOnlineTitles().subList(0, Math.min(getOnlineTitles().size(), maxLen)) : null);
+    builder.append(", getOrganizations()=");
+    builder.append(getOrganizations() != null ? getOrganizations().subList(0, Math.min(getOrganizations().size(), maxLen)) : null);
+    builder.append(", getPage()=");
+    builder.append(getPage());
+    builder.append(", getPeople()=");
+    builder.append(getPeople() != null ? getPeople().subList(0, Math.min(getPeople().size(), maxLen)) : null);
+    builder.append(", getPublicationDate()=");
+    builder.append(getPublicationDate());
+    builder.append(", getPublicationDayOfMonth()=");
+    builder.append(getPublicationDayOfMonth());
+    builder.append(", getPublicationMonth()=");
+    builder.append(getPublicationMonth());
+    builder.append(", getPublicationYear()=");
+    builder.append(getPublicationYear());
+    builder.append(", getSection()=");
+    builder.append(getSection());
+    builder.append(", getSeriesName()=");
+    builder.append(getSeriesName());
+    builder.append(", getSlug()=");
+    builder.append(getSlug());
+    builder.append(", getSourcePath()=");
+    builder.append(getSourcePath());
+    builder.append(", getTaxonomicClassifiers()=");
+    builder.append(getTaxonomicClassifiers() != null ? getTaxonomicClassifiers().subList(0, Math.min(getTaxonomicClassifiers().size(), maxLen)) : null);
+    builder.append(", getTitles()=");
+    builder.append(getTitles() != null ? getTitles().subList(0, Math.min(getTitles().size(), maxLen)) : null);
+    builder.append(", getTypesOfMaterial()=");
+    builder.append(getTypesOfMaterial() != null ? getTypesOfMaterial().subList(0, Math.min(getTypesOfMaterial().size(), maxLen)) : null);
+    builder.append(", getUrl()=");
+    builder.append(getUrl());
+    builder.append(", getWordCount()=");
+    builder.append(getWordCount());
+    builder.append("]");
+    return builder.toString();
+  }
 }
