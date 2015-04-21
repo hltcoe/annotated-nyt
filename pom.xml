@@ -154,7 +154,37 @@
     </dependency>
   </dependencies>
 
-    <profiles>
+  <profiles>
+    <profile>
+      <id>itest</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <version>1.3.1</version>
+            <executions>
+              <execution>
+                <id>enforce-property</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireProperty>
+                      <property>anytDataPath</property>
+                      <message>You must set the 'anytDataPath' property to the location of the path to the Annotated NYT corpus from LDC (LDC2008T19). This folder contains a 'data' folder with the years.</message>
+                    </requireProperty>
+                  </rules>
+                  <fail>true</fail>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <profile>
       <id>doclint-java8-disable</id>
       <activation>

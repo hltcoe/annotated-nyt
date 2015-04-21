@@ -425,98 +425,117 @@ public class AnnotatedNYTDocument {
     return this.nytdoc.getWordCount();
   }
 
-//  if (cDoc.getColumnNumber() != null)
-//    ni.setColumnNumber(cDoc.getColumnNumber());
-//  final Date dt = cDoc.getCorrectionDate();
-//  if (dt != null)
-//    ni.setCorrectionDate(dt.getTime());
-//  ni.setCorrectionText(cDoc.getCorrectionText());
-//  ni.setCredit(cDoc.getCredit());
-//
-//  ni.setDayOfWeek(cDoc.getDayOfWeek());
-//  if(cDoc.getDescriptors() != null && cDoc.getDescriptors().size() > 0) {
-//    ni.setDescriptorList(cDoc.getDescriptors());
-//  }
-//  ni.setFeaturePage(cDoc.getFeaturePage());
-//  if(cDoc.getGeneralOnlineDescriptors() != null && cDoc.getGeneralOnlineDescriptors().size() > 0) {
-//    ni.setGeneralOnlineDescriptorList(cDoc.getGeneralOnlineDescriptors());
-//  }
-//
-//  ni.setGuid(cDoc.getGuid());
-//
-//  ni.setKicker(cDoc.getKicker());
-//  ni.setLeadParagraphList(cDoc.getLeadParagraphAsList());
-//
-//  if(cDoc.getLocations() != null && cDoc.getLocations().size() > 0) {
-//    ni.setLocationList(cDoc.getLocations());
-//  }
-//  if(cDoc.getNames() != null && cDoc.getNames().size() > 0) {
-//    ni.setNameList(cDoc.getNames());
-//  }
-//  ni.setNewsDesk(cDoc.getNewsDesk());
-//  ni.setNormalizedByline(cDoc.getNormalizedByline());
-//  if(cDoc.getOnlineDescriptors() != null && cDoc.getOnlineDescriptors().size() > 0) {
-//    ni.setOnlineDescriptorList(cDoc.getOnlineDescriptors());
-//  }
-//  ni.setOnlineHeadline(cDoc.getOnlineHeadline());
-//  ni.setOnlineLeadParagraph(cDoc.getOnlineLeadParagraph());
-//  if(cDoc.getOnlineLocations() != null && cDoc.getOnlineLocations().size() > 0) {
-//    ni.setOnlineLocationList(cDoc.getOnlineLocations());
-//  }
-//  if(cDoc.getOnlineOrganizations() != null && cDoc.getOnlineOrganizations().size() > 0) {
-//    ni.setOnlineOrganizationList(cDoc.getOnlineOrganizations());
-//  }
-//  if(cDoc.getOnlinePeople() != null && cDoc.getOnlinePeople().size() > 0) {
-//    ni.setOnlinePeople(cDoc.getOnlinePeople());
-//  }
-//  if(cDoc.getOnlineSection() != null && cDoc.getOnlineSection().size() > 0) {
-//    ni.setOnlineSectionList(cDoc.getOnlineSection());
-//  }
-//  if(cDoc.getOnlineTitles() != null && cDoc.getOnlineTitles().size() > 0) {
-//    ni.setOnlineTitleList(cDoc.getOnlineTitles());
-//  }
-//  if(cDoc.getOrganizations() != null && cDoc.getOrganizations().size() > 0) {
-//    ni.setOrganizationList(cDoc.getOrganizations());
-//  }
-//  if (cDoc.getPage() != null) {
-//    ni.setPage(cDoc.getPage());
-//  }
-//  if(cDoc.getPeople() != null && cDoc.getPeople().size() > 0) {
-//    ni.setPeopleList(cDoc.getPeople());
-//  }
-//  {
-//  final Date pdt = cDoc.getPublicationDate();
-//  if (pdt != null)
-//    ni.setPublicationDate(pdt.getTime());
-//  }
-//  // without this guard, autoboxing will throw a NPE
-//  if(cDoc.getPublicationDayOfMonth() != null) {
-//    ni.setPublicationDayOfMonth(cDoc.getPublicationDayOfMonth());
-//  }
-//  if(cDoc.getPublicationMonth() != null) {
-//    ni.setPublicationMonth(cDoc.getPublicationMonth());
-//  }
-//  if(cDoc.getPublicationYear() != null) {
-//    ni.setPublicationYear(cDoc.getPublicationYear());
-//  }
-//  ni.setSection(cDoc.getSection());
-//  ni.setSeriesName(cDoc.getSeriesName());
-//  ni.setSlug(cDoc.getSlug());
-//
-//  if(cDoc.getTaxonomicClassifiers() != null && cDoc.getTaxonomicClassifiers().size() > 0) {
-//    ni.setTaxonomicClassifierList(cDoc.getTaxonomicClassifiers());
-//  }
-//  if(cDoc.getTitles() != null && cDoc.getTitles().size() > 0) {
-//    ni.setTitleList(cDoc.getTitles());
-//  }
-//  if(cDoc.getTypesOfMaterial() != null && cDoc.getTypesOfMaterial().size() > 0) {
-//    ni.setTypesOfMaterialList(cDoc.getTypesOfMaterial());
-//  }
-//  final URL url = cDoc.getUrl();
-//  if (url != null) {
-//    ni.setUrl(url.toString());
-//  }
-//  if(cDoc.getWordCount() != null) {
-//    ni.setWordCount(cDoc.getWordCount());
-//  }
+  /* (non-Javadoc)
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("AnnotatedNYTDocument [getGuid()=");
+    builder.append(getGuid());
+    builder.append(", getOnlineSectionAsList()=");
+    builder.append(getOnlineSectionAsList());
+    builder.append(", getLeadParagraphAsList()=");
+    builder.append(getLeadParagraphAsList());
+    builder.append(", getOnlineLeadParagraphAsList()=");
+    builder.append(getOnlineLeadParagraphAsList());
+    builder.append(", getBodyAsList()=");
+    builder.append(getBodyAsList());
+    builder.append(", getHeadline()=");
+    builder.append(getHeadline());
+    builder.append(", getOnlineHeadline()=");
+    builder.append(getOnlineHeadline());
+    builder.append(", getByline()=");
+    builder.append(getByline());
+    builder.append(", getDateline()=");
+    builder.append(getDateline());
+    builder.append(", getArticleAbstract()=");
+    builder.append(getArticleAbstract());
+    builder.append(", getLeadParagraph()=");
+    builder.append(getLeadParagraph());
+    builder.append(", getOnlineLeadParagraph()=");
+    builder.append(getOnlineLeadParagraph());
+    builder.append(", getCorrectionText()=");
+    builder.append(getCorrectionText());
+    builder.append(", getKicker()=");
+    builder.append(getKicker());
+    builder.append(", getAlternateURL()=");
+    builder.append(getAlternateURL());
+    builder.append(", getDescriptors()=");
+    builder.append(getDescriptors());
+    builder.append(", getAuthorBiography()=");
+    builder.append(getAuthorBiography());
+    builder.append(", getBanner()=");
+    builder.append(getBanner());
+    builder.append(", getBiographicalCategories()=");
+    builder.append(getBiographicalCategories());
+    builder.append(", getColumnName()=");
+    builder.append(getColumnName());
+    builder.append(", getColumnNumber()=");
+    builder.append(getColumnNumber());
+    builder.append(", getCorrectionDate()=");
+    builder.append(getCorrectionDate());
+    builder.append(", getCredit()=");
+    builder.append(getCredit());
+    builder.append(", getDayOfWeek()=");
+    builder.append(getDayOfWeek());
+    builder.append(", getFeaturePage()=");
+    builder.append(getFeaturePage());
+    builder.append(", getGeneralOnlineDescriptors()=");
+    builder.append(getGeneralOnlineDescriptors());
+    builder.append(", getLocations()=");
+    builder.append(getLocations());
+    builder.append(", getNames()=");
+    builder.append(getNames());
+    builder.append(", getNewsDesk()=");
+    builder.append(getNewsDesk());
+    builder.append(", getNormalizedByline()=");
+    builder.append(getNormalizedByline());
+    builder.append(", getOnlineDescriptors()=");
+    builder.append(getOnlineDescriptors());
+    builder.append(", getOnlineLocations()=");
+    builder.append(getOnlineLocations());
+    builder.append(", getOnlineOrganizations()=");
+    builder.append(getOnlineOrganizations());
+    builder.append(", getOnlinePeople()=");
+    builder.append(getOnlinePeople());
+    builder.append(", getOnlineSection()=");
+    builder.append(getOnlineSection());
+    builder.append(", getOnlineTitles()=");
+    builder.append(getOnlineTitles());
+    builder.append(", getOrganizations()=");
+    builder.append(getOrganizations());
+    builder.append(", getPage()=");
+    builder.append(getPage());
+    builder.append(", getPeople()=");
+    builder.append(getPeople());
+    builder.append(", getPublicationDate()=");
+    builder.append(getPublicationDate());
+    builder.append(", getPublicationDayOfMonth()=");
+    builder.append(getPublicationDayOfMonth());
+    builder.append(", getPublicationMonth()=");
+    builder.append(getPublicationMonth());
+    builder.append(", getPublicationYear()=");
+    builder.append(getPublicationYear());
+    builder.append(", getSection()=");
+    builder.append(getSection());
+    builder.append(", getSeriesName()=");
+    builder.append(getSeriesName());
+    builder.append(", getSlug()=");
+    builder.append(getSlug());
+    builder.append(", getSourcePath()=");
+    builder.append(getSourcePath());
+    builder.append(", getTaxonomicClassifiers()=");
+    builder.append(getTaxonomicClassifiers());
+    builder.append(", getTitles()=");
+    builder.append(getTitles());
+    builder.append(", getTypesOfMaterial()=");
+    builder.append(getTypesOfMaterial());
+    builder.append(", getUrl()=");
+    builder.append(getUrl());
+    builder.append(", getWordCount()=");
+    builder.append(getWordCount());
+    builder.append("]");
+    return builder.toString();
+  }
 }
