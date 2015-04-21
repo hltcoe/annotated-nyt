@@ -176,8 +176,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the featurePage
    */
-  public String getFeaturePage() {
-    return this.nytdoc.getFeaturePage();
+  public Optional<String> getFeaturePage() {
+    return Optional.ofNullable(this.nytdoc.getFeaturePage());
   }
 
   /**
@@ -221,8 +221,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the normalizedByline
    */
-  public String getNormalizedByline() {
-    return this.nytdoc.getNormalizedByline();
+  public Optional<String> getNormalizedByline() {
+    return Optional.ofNullable(this.nytdoc.getNormalizedByline());
   }
 
   /**
