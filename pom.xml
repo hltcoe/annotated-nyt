@@ -11,6 +11,31 @@
   <description>Utilities for working with the Annotated NYT corpus.</description>
   <url>http://github.com/hltcoe/annotated-nyt</url>
 
+  <organization>
+    <name>Johns Hopkins University HLTCOE</name>
+    <url>http://hltcoe.jhu.edu</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <email>sandhes@nytimes.com</email>
+      <name>Evan Sandhaus</name>
+    </developer>
+    <developer>
+      <email>max.thomas@jhu.edu</email>
+      <name>Max Thomas</name>
+      <url>https://github.com/maxthomas</url>
+      <id>maxthomas</id>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+
   <scm>
     <url>https://github.com/hltcoe/annotated-nyt</url>
     <connection>scm:git:git://github.com/hltcoe/annotated-nyt.git</connection>
@@ -250,6 +275,17 @@
           </plugin>
         </plugins>
       </build>
+
+      <distributionManagement>
+        <snapshotRepository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+      </distributionManagement>
     </profile>
   </profiles>
 </project>
