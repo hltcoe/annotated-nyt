@@ -95,8 +95,8 @@ public class AnnotatedNYTDocument {
     return Optional.ofNullable(this.nytdoc.getArticleAbstract());
   }
 
-  public String getLeadParagraph() {
-    return this.nytdoc.getLeadParagraph();
+  public Optional<String> getLeadParagraph() {
+    return Optional.ofNullable(this.nytdoc.getLeadParagraph());
   }
 
   public Optional<String> getOnlineLeadParagraph() {
