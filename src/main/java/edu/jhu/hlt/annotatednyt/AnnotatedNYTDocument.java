@@ -167,8 +167,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the dayOfWeek
    */
-  public String getDayOfWeek() {
-    return this.nytdoc.getDayOfWeek();
+  public Optional<String> getDayOfWeek() {
+    return Optional.ofNullable(this.nytdoc.getDayOfWeek());
   }
 
   /**
@@ -212,8 +212,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the newsDesk
    */
-  public String getNewsDesk() {
-    return this.nytdoc.getNewsDesk();
+  public Optional<String> getNewsDesk() {
+    return Optional.ofNullable(this.nytdoc.getNewsDesk());
   }
 
   /**
@@ -320,8 +320,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the publicationDayOfMonth
    */
-  public Integer getPublicationDayOfMonth() {
-    return this.nytdoc.getPublicationDayOfMonth();
+  public Optional<Integer> getPublicationDayOfMonth() {
+    return Optional.ofNullable(this.nytdoc.getPublicationDayOfMonth());
   }
 
   /**
@@ -329,8 +329,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the publicationMonth
    */
-  public Integer getPublicationMonth() {
-    return this.nytdoc.getPublicationMonth();
+  public Optional<Integer> getPublicationMonth() {
+    return Optional.ofNullable(this.nytdoc.getPublicationMonth());
   }
 
   /**
@@ -338,8 +338,8 @@ public class AnnotatedNYTDocument {
    *
    * @return the publicationYear
    */
-  public Integer getPublicationYear() {
-    return this.nytdoc.getPublicationYear();
+  public Optional<Integer> getPublicationYear() {
+    return Optional.ofNullable(this.nytdoc.getPublicationYear());
   }
 
   /**
