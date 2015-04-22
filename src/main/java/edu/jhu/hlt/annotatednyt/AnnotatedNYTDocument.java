@@ -32,11 +32,11 @@ public class AnnotatedNYTDocument {
 
   public List<String> getOnlineSectionAsList() {
     List<String> onlineSectionList = new ArrayList<String>();
-    Optional<String> online = Optional.ofNullable(this.nytdoc.getSection());
+    Optional<String> online = Optional.ofNullable(this.nytdoc.getOnlineSection());
     online.ifPresent(str -> {
       String[] split = str.split(";");
       for (String s : split)
-        onlineSectionList.add(s);
+        onlineSectionList.add(s.trim());
     });
 
     return onlineSectionList;
