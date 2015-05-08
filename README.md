@@ -26,7 +26,8 @@ AnnotatedNYTDocument and = new AnnotatedNYTDocument(ncd);
 ```
 
 ## API
-The API is guaranteed not pass along any `null` fields.
+All fields in the `AnnotatedNYTDocument` objects are guaranteed to
+be non-`null`.
 
 Many of the fields in the corpus can be empty or `null` in the
 documents themselves. These fields are represented in the wrapper
