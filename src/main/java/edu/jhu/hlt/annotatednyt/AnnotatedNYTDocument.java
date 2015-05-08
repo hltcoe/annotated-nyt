@@ -17,19 +17,40 @@ import com.nytlabs.corpus.NYTCorpusDocument;
 /**
  * Wrapper for the {@link NYTCorpusDocument} object, providing some
  * extra utility.
+ * <br><br>
+ * In this wrapper, the semantics of possibly empty fields are represented by {@link Optional}
+ * wrappers. Methods that return an {@link Optional} object represent fields that
+ * can be <code>null</code> in the Annotated NYT corpus. Methods that return an object directly
+ * (e.g., {@link String}, {@link Integer} etc.) are guaranteed to be non-null across the corpus.
+ * <br><br>
+ * This wrapper also provides {@link List} objects, for convenience, for many fields.
+ * The semantics of these lists is as follows: the list is guaranteed to be non-null,
+ * but the list might be empty if the underlying corpus document does not have content
+ * for the field specified.
  */
 public class AnnotatedNYTDocument {
 
   private final NYTCorpusDocument nytdoc;
 
+  /**
+   * Wrap an {@link NYTCorpusDocument} object.
+   *
+   * @param nytdoc the {@link NYTCorpusDocument} to wrap
+   */
   public AnnotatedNYTDocument(final NYTCorpusDocument nytdoc) {
     this.nytdoc = nytdoc;
   }
 
+  /**
+   * @return the guid of the underlying document as an {@link Integer}. Guaranteed non-null.
+   */
   public Integer getGuid() {
     return this.nytdoc.getGuid();
   }
 
+  /**
+   * @return the online section field as a list. It is split by the <code>;</code> delimeter.
+   */
   public List<String> getOnlineSectionAsList() {
     List<String> onlineSectionList = new ArrayList<String>();
     Optional<String> online = Optional.ofNullable(this.nytdoc.getOnlineSection());
@@ -42,24 +63,44 @@ public class AnnotatedNYTDocument {
     return onlineSectionList;
   }
 
+  /**
+   * @return the lead paragraph field as a list. Split by *nix newlines.
+   */
   public List<String> getLeadParagraphAsList() {
     return getOptionalStringFieldAsList(this.nytdoc.getLeadParagraph());
   }
 
+  /**
+   * @return the online lead paragraph field as a list, split by *nix newlines.
+   */
   public List<String> getOnlineLeadParagraphAsList() {
     return getOptionalStringFieldAsList(this.nytdoc.getOnlineLeadParagraph());
   }
 
+  /**
+   *
+   * @return the body field as a list, split by *nix newlines.
+   */
   public List<String> getBodyAsList() {
     return getOptionalStringFieldAsList(this.nytdoc.getBody());
   }
 
+  /**
+   * @param fieldStr possibly <code>null</code> {@link String} to split
+   * @return a {@link List} of {@link String} objects; the list is empty if <code>fieldStr</code>
+   * is null, otherwise, it will have all elements of calling {@link String#split(String)} with
+   * <code>\n</code> as the parameter.
+   */
   private static final List<String> getOptionalStringFieldAsList(final String fieldStr) {
     final Optional<String> field = Optional.ofNullable(fieldStr);
     List<String> toRet = field.isPresent() ? unixNewlineStringToList(field.get()) : new ArrayList<String>();
     return toRet;
   }
 
+  /**
+   * @param unixNewlineStr a string to split via a *nix newline
+   * @return a {@link List} of {@link String} objects from the string split
+   */
   private static final List<String> unixNewlineStringToList(final String unixNewlineStr) {
     List<String> strList = new ArrayList<String>();
     String[] split = unixNewlineStr.split("\n");
@@ -68,6 +109,14 @@ public class AnnotatedNYTDocument {
     return strList;
   }
 
+  /**
+   * Generic utility method to take a possibly <code>null</code> list and
+   * return either an empty list of the same type, or the list itself
+   * if it is not empty.
+   *
+   * @param stuff a {@link List}, which may be <code>null</code>
+   * @return an empty {@link List}, or the list itself if not null.
+   */
   private static final <T> List<T> nullListAsEmptyList(List<T> stuff) {
     if (stuff == null)
       return new ArrayList<T>();
@@ -75,62 +124,118 @@ public class AnnotatedNYTDocument {
       return stuff;
   }
 
+  /**
+   * @return the headline
+   */
   public Optional<String> getHeadline() {
     return Optional.ofNullable(this.nytdoc.getHeadline());
   }
 
+  /**
+   * @return the online headline
+   */
   public Optional<String> getOnlineHeadline() {
     return Optional.ofNullable(this.nytdoc.getOnlineHeadline());
   }
 
+  /**
+   * @return the byline
+   */
   public Optional<String> getByline() {
     return Optional.ofNullable(this.nytdoc.getByline());
   }
 
+  /**
+   * @return the dateline as a string
+   */
   public Optional<String> getDateline() {
     return Optional.ofNullable(this.nytdoc.getDateline());
   }
 
+  /**
+   *
+   * @return the article abstract
+   */
   public Optional<String> getArticleAbstract() {
     return Optional.ofNullable(this.nytdoc.getArticleAbstract());
   }
 
+  /**
+   *
+   * @return the lead paragraph
+   */
   public Optional<String> getLeadParagraph() {
     return Optional.ofNullable(this.nytdoc.getLeadParagraph());
   }
 
+  /**
+   *
+   * @return the online lead paragraph
+   */
   public Optional<String> getOnlineLeadParagraph() {
     return Optional.ofNullable(this.nytdoc.getOnlineLeadParagraph());
   }
 
+  /**
+   *
+   * @return the correction text
+   */
   public Optional<String> getCorrectionText() {
     return Optional.ofNullable(this.nytdoc.getCorrectionText());
   }
 
+  /**
+   *
+   * @return the kicker
+   */
   public Optional<String> getKicker() {
     return Optional.ofNullable(this.nytdoc.getKicker());
   }
 
+  /**
+   *
+   * @return the alternate url, as a {@link URL} object.
+   */
   public Optional<URL> getAlternateURL() {
     return Optional.ofNullable(this.nytdoc.getAlternateURL());
   }
 
+  /**
+   *
+   * @return the descriptors
+   */
   public List<String> getDescriptors() {
     return nullListAsEmptyList(this.nytdoc.getDescriptors());
   }
 
+  /**
+   *
+   * @return the author biography
+   */
   public Optional<String> getAuthorBiography() {
     return Optional.ofNullable(this.nytdoc.getAuthorBiography());
   }
 
+  /**
+   *
+   * @return the banner
+   */
   public Optional<String> getBanner() {
     return Optional.ofNullable(this.nytdoc.getBanner());
   }
 
+  /**
+   *
+   * @return the biographical categories, as a list. May be empty.
+   */
   public List<String> getBiographicalCategories() {
     return nullListAsEmptyList(this.nytdoc.getBiographicalCategories());
   }
 
+  /**
+   *
+   * @return the column name
+   */
   public Optional<String> getColumnName() {
     return Optional.ofNullable(this.nytdoc.getColumnName());
   }

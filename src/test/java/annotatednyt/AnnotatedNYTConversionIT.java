@@ -22,7 +22,12 @@ import edu.jhu.hlt.acute.iterators.tar.TarGzArchiveEntryByteIterator;
 import edu.jhu.hlt.annotatednyt.AnnotatedNYTDocument;
 
 /**
+ * Integration test for the Annotated NYT wrapper.
  *
+ * The maven build requires the property <code>anytDataPath</code> to be set. This field
+ * should point to the <code>data</code> directory of the Annotated NYT corpus from LDC.
+ * <br><br>
+ * This integration test runs the mapper over all documents and prints their wrapped representation.
  */
 public class AnnotatedNYTConversionIT {
 
@@ -49,9 +54,9 @@ public class AnnotatedNYTConversionIT {
             while (iter.hasNext()) {
               byte[] n = iter.next();
               NYTCorpusDocument nytd = parser.fromByteArray(n, false);
-              LOGGER.info("Got NYT representation of document: {}", nytd.getGuid());
+              LOGGER.debug("Got NYT representation of document: {}", nytd.getGuid());
               AnnotatedNYTDocument anytd = new AnnotatedNYTDocument(nytd);
-              LOGGER.info("ANYT representation: {}", anytd.toString());
+              LOGGER.debug("ANYT representation: {}", anytd.toString());
             }
           } catch (IOException e) {
             throw new RuntimeException(e);
