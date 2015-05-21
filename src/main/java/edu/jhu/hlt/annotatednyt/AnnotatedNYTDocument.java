@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 import com.nytlabs.corpus.NYTCorpusDocument;
 
@@ -29,6 +30,10 @@ import com.nytlabs.corpus.NYTCorpusDocument;
  * for the field specified.
  */
 public class AnnotatedNYTDocument {
+
+  // Useful pattern for removing non-breaking whitespace
+  // that is found in some online lead paragraphs.
+  private static final Pattern NBS_PATTERN = Pattern.compile("\\p{Zs}");
 
   private final NYTCorpusDocument nytdoc;
 
@@ -92,9 +97,10 @@ public class AnnotatedNYTDocument {
    * <code>\n</code> as the parameter.
    */
   private static final List<String> getOptionalStringFieldAsList(final String fieldStr) {
-    final Optional<String> field = Optional.ofNullable(fieldStr);
-    List<String> toRet = field.isPresent() ? unixNewlineStringToList(field.get()) : new ArrayList<String>();
-    return toRet;
+    // the list could have only spaces - in that case, just return an empty list.
+    return removeNonBreakingSpaceChars(fieldStr)
+        .map(AnnotatedNYTDocument::unixNewlineStringToList)
+        .orElse(new ArrayList<String>());
   }
 
   /**
@@ -173,7 +179,8 @@ public class AnnotatedNYTDocument {
    * @return the online lead paragraph
    */
   public Optional<String> getOnlineLeadParagraph() {
-    return Optional.ofNullable(this.nytdoc.getOnlineLeadParagraph());
+    final String olp = this.nytdoc.getOnlineLeadParagraph();
+    return removeNonBreakingSpaceChars(olp);
   }
 
   /**
@@ -645,5 +652,12 @@ public class AnnotatedNYTDocument {
     builder.append(getWordCount());
     builder.append("]");
     return builder.toString();
+  }
+
+  private static final Optional<String> removeNonBreakingSpaceChars(final String in) {
+    return Optional.ofNullable(in)
+        .map(s -> s.replaceAll(NBS_PATTERN.toString(), " "))
+        .map(String::trim)
+        .filter(s -> !s.isEmpty());
   }
 }
