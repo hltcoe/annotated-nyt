@@ -1,6 +1,9 @@
 # annotated-nyt
 Utilities for reading the [Annotated NYT corpus](https://catalog.ldc.upenn.edu/LDC2008T19).
 
+![Maven Badges](https://maven-badges.herokuapp.com/maven-central/edu.jhu.hlt/annotated-nyt/badge.svg)
+[![javadoc.io](https://javadocio-badges.herokuapp.com/edu.jhu.hlt/annotated-nyt/badge.svg)](http://www.javadoc.io/doc/edu.jhu.hlt/annotated-nyt/)
+
 Latest Maven dependency
 ---
 ```xml
