@@ -7,7 +7,7 @@ Latest Maven dependency
 <dependency>
   <groupId>edu.jhu.hlt</groupId>
   <artifactId>annotated-nyt</artifactId>
-  <version>1.1.3</version>
+  <version>1.1.4</version>
 </dependency>
 ```
 
