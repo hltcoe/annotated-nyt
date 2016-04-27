@@ -36,15 +36,20 @@ import java.util.List;
  *
  * The original version of this class contained characters that could
  * not be mapped to UTF-8 characters; those have been removed in this version.
- * 
+ *
  * This version also contains changes to allow for the body section
- * to be split into sections that can more readily be processed. 
- * 
+ * to be split into sections that can more readily be processed.
+ *
  * Additional changes include fixing of various unclosed HTML tags.
  *
  * @author Evan Sandhaus
  */
 public class NYTCorpusDocument {
+
+  public NYTCorpusDocument() {
+
+  }
+
 	/**
 	 * This field specifies the location on nytimes.com of the article. When
 	 * present, this URL is preferred to the URL field on articles published on
@@ -179,7 +184,7 @@ public class NYTCorpusDocument {
 	/**
 	 * This field specifies the day of week on which the article was published.
 	 * <ul>
-	 * <li>Monday</li> 
+	 * <li>Monday</li>
 	 * <li>Tuesday</li>
 	 * <li>Wednesday</li>
 	 * <li>Thursday</li>
@@ -461,7 +466,7 @@ public class NYTCorpusDocument {
 	 * other articles published on the same day. Please note, however, that
 	 * different articles on different days may have the same slug.
 	 * <ul>
-	 * <li>30other</li> 
+	 * <li>30other</li>
 	 * <li>12reunion</li>
 	 * </ul>
 	 */
@@ -1490,7 +1495,8 @@ public class NYTCorpusDocument {
 	 *
 	 * @see java.lang.Object#toString()
 	 */
-	public String toString() {
+	@Override
+  public String toString() {
 		StringBuffer sb = new StringBuffer();
 		appendProperty(sb, "alternativeURL", alternateURL);
 		appendProperty(sb, "articleAbstract", articleAbstract);
