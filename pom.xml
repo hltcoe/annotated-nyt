@@ -49,7 +49,7 @@
   </issueManagement>
 
   <properties>
-    <jackson.version>2.9.5</jackson.version>
+    <jackson.version>2.9.8</jackson.version>
     <log4j.version>2.2</log4j.version>
   </properties>
 
